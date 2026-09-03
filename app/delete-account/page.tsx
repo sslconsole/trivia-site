@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Bebas_Neue } from "next/font/google";
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-bebas-neue",
 });
+
+const COLORS = {
+  background: "#1a1a2e",
+  surface: "#16213e",
+  primary: "#2ecc71",
+  text: "#ffffff",
+  textMuted: "#888888",
+  gold: "#F5A623",
+};
 
 export const metadata: Metadata = {
   title: "Ryan's Trivia",
@@ -13,24 +22,40 @@ export const metadata: Metadata = {
 
 export default function DeleteAccountPage() {
   return (
-    <main className="min-h-screen bg-[#0f0f2e] flex flex-col items-center justify-center px-4 py-16">
-      <div className="w-full max-w-md flex flex-col items-center text-center">
-        <span className="text-6xl mb-4" role="img" aria-label="Shamrock">
-          🍀
-        </span>
+    <main
+      className="min-h-screen flex items-center justify-center px-6"
+      style={{ backgroundColor: COLORS.background }}
+    >
+      <div className="w-full max-w-md py-16">
+        <div className="flex items-center justify-center gap-[10px] mb-10">
+          <Image src="/shamrock.png" alt="" width={36} height={36} />
+          <h1
+            className={`${bebasNeue.className} text-center`}
+            style={{ fontSize: 36, color: COLORS.primary, lineHeight: 1 }}
+          >
+            Ryan&apos;s Trivia
+          </h1>
+          <Image src="/shamrock.png" alt="" width={36} height={36} />
+        </div>
 
-        <h1
-          className={`${bebasNeue.variable} font-[family-name:var(--font-bebas-neue)] text-5xl sm:text-6xl tracking-wide text-[#F5A623]`}
+        <h2
+          className="text-center text-2xl font-semibold mb-2"
+          style={{ color: COLORS.text }}
         >
           Delete Your Account
-        </h1>
-
-        <p className="mt-3 text-white/70 italic">
+        </h2>
+        <p
+          className="text-center text-sm italic mb-8"
+          style={{ color: COLORS.textMuted }}
+        >
           We&apos;d hate to lose you, trivia friend.
         </p>
 
-        <div className="mt-8 w-full rounded-2xl bg-[#1a1a3d] border border-[#F5A623]/20 shadow-lg shadow-black/30 p-6 sm:p-8 text-left">
-          <p className="text-white/90 leading-relaxed">
+        <div
+          className="rounded-lg p-6 text-left"
+          style={{ backgroundColor: COLORS.surface }}
+        >
+          <p style={{ color: COLORS.text }} className="leading-relaxed">
             To permanently delete your account and all associated data —
             including your streak, leaderboard history, and strike record —
             follow these steps:
@@ -43,26 +68,32 @@ export default function DeleteAccountPage() {
               "Scroll down and tap Delete Account",
               "Confirm by tapping Delete My Account",
             ].map((step, i) => (
-              <li key={i} className="flex gap-3 text-white/90">
-                <span className="flex-none w-6 h-6 rounded-full bg-[#F5A623] text-[#0f0f2e] font-bold text-sm flex items-center justify-center">
+              <li key={i} className="flex gap-3">
+                <span
+                  className="flex-none w-6 h-6 rounded-full font-bold text-sm flex items-center justify-center"
+                  style={{ backgroundColor: COLORS.gold, color: "#000000" }}
+                >
                   {i + 1}
                 </span>
-                <span className="pt-0.5">{step}</span>
+                <span className="pt-0.5" style={{ color: COLORS.text }}>
+                  {step}
+                </span>
               </li>
             ))}
           </ol>
 
-          <p className="mt-6 text-white/90 font-semibold">
+          <p className="mt-6 font-semibold" style={{ color: COLORS.text }}>
             Your account will be deleted immediately and cannot be recovered.
           </p>
 
-          <hr className="my-6 border-white/10" />
+          <hr className="my-6" style={{ borderColor: "#2a2a4a" }} />
 
-          <p className="text-white/70">
+          <p style={{ color: COLORS.textMuted }}>
             Need help or can&apos;t access the app? Email us at{" "}
             <a
               href="mailto:ryanstrivianight@gmail.com"
-              className="text-[#F5A623] font-medium underline underline-offset-2 hover:text-[#F5A623]/80"
+              style={{ color: COLORS.primary }}
+              className="font-medium underline"
             >
               ryanstrivianight@gmail.com
             </a>{" "}
