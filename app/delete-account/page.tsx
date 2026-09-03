@@ -45,8 +45,8 @@ export default function DeleteAccountPage() {
           Delete Your Account
         </h2>
         <p
-          className="text-center text-sm italic mb-8"
-          style={{ color: COLORS.textMuted }}
+          className="text-center text-xl font-semibold italic mb-8"
+          style={{ color: COLORS.gold }}
         >
           We&apos;d hate to lose you, trivia friend.
         </p>
