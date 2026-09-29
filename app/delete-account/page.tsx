@@ -91,11 +91,11 @@ export default function DeleteAccountPage() {
           <p style={{ color: COLORS.textMuted }}>
             Need help or can&apos;t access the app? Email us at{" "}
             <a
-              href="mailto:ryanstrivianight@gmail.com"
+              href="mailto:support@ryanstrivianight.com"
               style={{ color: COLORS.primary }}
               className="font-medium underline"
             >
-              ryanstrivianight@gmail.com
+              support@ryanstrivianight.com
             </a>{" "}
             and we&apos;ll delete your account manually within 7 days.
           </p>
